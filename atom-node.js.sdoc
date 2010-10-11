@@ -1,0 +1,38 @@
+ATOM -> JSON translator | Spencer Tipping
+Copyright (C) 2010 Social Media Networks, all rights reserved
+
+Step 1. Load Caterwaul.
+This can be done synchronously, since it happens only on server startup.
+
+  eval(require('fs').readFileSync('./cateraul.js'));
+
+Step 2. Listen for incoming requests.
+Any incoming requests get translated by the node-xml library, and JSON gets sent to whoever requested it.
+
+  caterwaul.clone('std')(function (require) {
+
+  XML fetching.
+  We create an HTTP client to fetch the XML specified by the user. In this case it's the entire URL, so we just unescape it to get the URL they wanted.
+
+    const fetch_xml = fn[hostname, url, cc][let[client = require('http').createClient(80, host)] in
+                                            (client.end(), client.on('response', fn[response][response.setEncoding('utf8'), response.on('data', cc)]))];
+
+  XML -> JSON conversion.
+  Here's how this works. When we see a node, we create an object {attributes: node_attributes}. This then gets associated with the previous node and pushed onto the node stack (thus becoming
+  the active node). When we see text, we assign the 'text' attribute of the current node to it. When we leave a node, we pop the node stack.
+
+  If we see a node called X and the current node already has an X, then we convert it to an array and push the new node onto that array. This means that multiple nodes are handled correctly:
+
+  | <foo>
+      <bar>stuff</bar>
+      <bar>stuff</bar>
+    </foo>
+
+  For this example, 'foo' will look like this: {bar: [{text: stuff, attributes: {}}, {text: stuff, attributes: {}}]}.
+
+    const xml_to_json = fn[xml][];
+
+  require('http').createServer(function (req, res) {
+    
+  }).listen(8080, '0.0.0.0'); 
+  }) (require);
