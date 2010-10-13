@@ -54,7 +54,7 @@ Copyright (C) 2010 Social Media Networks, all rights reserved
                                                                                                                             [res.writeHead(200, {'content-type': 'text/javascript'}),
                                                                                                                              res.end(cache[req.url] =
                                                                                                                                'receiveAtomAsJson(#{JSON.stringify(json)})')])])])))),
-                                              when[parts], where[parts = /\/?([^\/]+)(.*)/.exec(req.url)]]).listen(8080, '0.0.0.0');
+                                              when[parts], where[parts = /\/?([^\/]+)(.*)/.exec(req.url)]]).listen(8081, '0.0.0.0');
 
     process.on('uncaughtException', fn[e][console.log('Exception: #{e}')]);
   }) (require);
