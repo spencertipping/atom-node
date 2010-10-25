@@ -53,7 +53,8 @@ Copyright (C) 2010 Social Media Networks, all rights reserved
                                                                                          fn[xml][xml_to_json(xml, fn[json][listeners[req.url].forEach(fn[res]
                                                                                                                             [res.writeHead(200, {'content-type': 'text/javascript'}),
                                                                                                                              res.end(cache[req.url] =
-                                                                                                                               'receiveAtomAsJson(#{JSON.stringify(json)})')])])])))),
+                                                                                                                               'receiveAtomAsJson(#{JSON.stringify(json)})')]),
+                                                                                                                           listeners[req.url] = null])])))),
                                               when[parts], where[parts = /\/?([^\/]+)(.*)/.exec(req.url)]]).listen(8081, '0.0.0.0');
 
     process.on('uncaughtException', fn[e][console.log('Exception: #{e}')]);
