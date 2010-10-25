@@ -78,7 +78,7 @@
     var cache = {}, listeners = {};
     setInterval(fn_[cache = {}, listeners = {}], 900000);
     require('http').createServer(fn[req, res][cache[req.url] ?
-                                                (res.writeHead(200, {'content-type': 'text/json'}), res.end(cache[req.url])) :
+                                                (res.writeHead(200, {'content-type': 'text/javascript'}), res.end(cache[req.url])) :
                                                 ((listeners[req.url] ?
                                                   listeners[req.url].push(res) :
                                                   (listeners[req.url] = [res],

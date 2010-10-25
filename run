@@ -1,4 +1,4 @@
 #!/bin/bash
 sdoc -p
 cat caterwaul.js atom-node.js > run.js
-node run.js
+node "$@" run.js
